@@ -1,0 +1,43 @@
+.sideContacts {
+  position: fixed;
+  top: 225px;
+  left: 50px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 240px;
+  width: 20px;
+  &__link {
+    display: block;
+    width: 20px;
+    height: 20px;
+    &:hover {
+      path {
+        fill: $sub-color;
+      }
+    }
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      transform: rotate(-0.25turn);
+    }
+  }
+  &__divider {
+    height: 70px;
+    width: 2px;
+    background-color: #000;
+  }
+  &__text {
+    height: 75px;
+    width: 20px;
+    span {
+      display: block;
+      transform: rotate(-0.25turn) translate(-267%, -10%);
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}
