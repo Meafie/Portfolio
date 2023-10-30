@@ -41,6 +41,7 @@
     transition: background-image 2s;
     &.second {
       background: url("../img/bg_second.jpg") no-repeat right / cover;
+      transition: background-image 2s;
     }
   }
 }

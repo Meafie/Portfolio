@@ -13,14 +13,14 @@ window.addEventListener("load", () => {
   menu.addEventListener("click", (event) => {
     const target = event.target;
     if (
-      target.className == "menu__overlay" ||
-      target.tagName == "A" ||
-      target.parentElement.className == "menu__close"
+      target.className === "menu__overlay" ||
+      target.tagName === "A" ||
+      target.tagName === "svg" ||
+      target.tagName === "path"
     ) {
       menu.classList.remove("active");
       bgswap.classList.remove("second");
     }
-    console.dir(target);
   });
 
   // Side Contacts Color Swap
@@ -93,7 +93,8 @@ window.addEventListener("load", () => {
   const form = document.querySelector(".contacts__form"),
     formName = form.querySelector("#name"),
     formEmail = form.querySelector("#email"),
-    formCheck = form.querySelector("#check").checked;
+    formText = form.querySelector("#text"),
+    formCheck = form.querySelector("#check");
 
   function textinside(place, text) {
     place.value = text;
@@ -112,32 +113,47 @@ window.addEventListener("load", () => {
     });
   }
 
-  textinside(formName, "Иван");
+  textinside(formName, "Ваше Имя");
   textinside(formEmail, "example@mail.com");
   textinside(form.querySelector("#text"), "Ваш текст");
 
-  // function isValidName(name) {
-  //   const pattern = /^[а-яА-Я]+$|^[a-zA-Z]+$/g;
-  //   return pattern.test(name);
-  // }
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = formName.value;
+    const email = formEmail.value;
+    const isFormChecked = formCheck.checked;
+    const error = document.querySelector(".contacts__error");
+    if (name === "Ваше Имя" || email === "example@mail.com") {
+      error.innerHTML =
+        "Пожалуйста, заполните обязательные поля (имя и почта)!";
+      return;
+    }
+    if (!isValidName(name)) {
+      error.innerHTML =
+        "Имя может содержать только латинские буквы или кириллицу.";
+      return;
+    }
+    if (!isValidMail(email)) {
+      error.innerHTML = "Введите корректный email адрес (example@mail.com).";
+      return;
+    }
+    if (!isFormChecked) {
+      error.innerHTML =
+        "Вы не поставили галочку о согласии с политикой конфедициальности.";
+      return;
+    }
+    form.submit();
+  });
 
-  // formName.addEventListener("change", () => {
-  //   console.log(formName.value);
-  //   console.log(isValidName(formName.value));
-  // });
+  function isValidName(name) {
+    const pattern = /^[а-яА-Я]+$|^[a-zA-Z]+$/g;
+    return pattern.test(name);
+  }
 
-  // form.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-
-  //   if (!formCheck) {
-  //     alert(
-  //       "Вы не поставили галочку о согласии с политикой конфедициальности."
-  //     );
-  //     return;
-  //   }
-
-  //   form.submit();
-  // });
+  function isValidMail(mail) {
+    const pattern = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/;
+    return pattern.test(mail);
+  }
 
   // Up Button
 
