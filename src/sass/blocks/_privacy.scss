@@ -1,0 +1,23 @@
+.privacy {
+  .divider-block {
+    margin: 25px auto;
+  }
+  &__header {
+    text-align: center;
+  }
+  &__subheader {
+    font-weight: 700;
+    text-align: center;
+  }
+  &__ol {
+    list-style: none;
+    counter-reset: li;
+    text-align: left;
+  }
+  &__li {
+    &::before {
+      counter-increment: li;
+      content: counters(li, ".") ". ";
+    }
+  }
+}

@@ -37,10 +37,10 @@
     z-index: -1;
     width: 100%;
     min-height: 100vh;
-    background: url("../img/bg_main.jpg") no-repeat 50% / cover;
+    background: url("../img/bg_main.jpg") no-repeat right / cover;
     transition: background-image 2s;
     &.second {
-      background: url("../img/bg_second.jpg") no-repeat 50% / cover;
+      background: url("../img/bg_second.jpg") no-repeat right / cover;
     }
   }
 }

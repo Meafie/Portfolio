@@ -4,17 +4,17 @@
     display: grid;
     grid-template: minmax(245px, auto) minmax(255px, auto) / 400px 570px;
     gap: 40px 70px;
-    grid-template-areas:
-      "photo ."
-      "photo .";
     .divider-block {
-      margin-top: 0;
+      margin: 0;
     }
   }
   &__photo {
-    grid-area: photo;
+    grid-row: 1/3;
     img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
     }
   }
   &__title {
@@ -22,6 +22,9 @@
     position: relative;
     padding-left: 12px;
     @include before__circle;
+    &:before {
+      top: -5px;
+    }
   }
   &__text {
     margin-top: 20px;
@@ -31,7 +34,8 @@
   }
   &__skills {
     display: grid;
-    grid-template: repeat(2, minmax(115px, auto)) / repeat(2, 1fr);
+    grid-template: minmax(115px, auto) / repeat(2, 1fr);
+    grid-auto-rows: minmax(115px, auto);
     gap: 20px 50px;
     justify-items: end;
   }
@@ -47,10 +51,6 @@
     position: absolute;
     top: 15px;
     left: -45px;
-    @include before__circle;
-    &:before {
-      top: -15px;
-      left: -15px;
-    }
+    @include before__circle_tl;
   }
 }

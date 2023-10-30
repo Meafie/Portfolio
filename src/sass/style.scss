@@ -9,6 +9,7 @@
   font-weight: 500;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -16,7 +17,10 @@ h2,
 h3,
 h4,
 h5,
-p {
+p,
+dl,
+ol,
+ul {
   margin: 0;
 }
 
@@ -32,3 +36,10 @@ p {
 @import "blocks/menu";
 @import "blocks/divider-block";
 @import "blocks/about";
+@import "blocks/expirience";
+@import "blocks/skills";
+@import "blocks/portfolio";
+@import "blocks/prices";
+@import "blocks/contacts";
+@import "blocks/privacy";
+@import "blocks/media";

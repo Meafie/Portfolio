@@ -1,0 +1,75 @@
+.expirience {
+  padding-top: 120px;
+  .title__section-title {
+    &:before {
+      background-color: $sub-color;
+    }
+  }
+  .divider-block {
+    background-color: $sub-color;
+  }
+  &__wrapper {
+    padding: 60px 65px 0 65px;
+    display: grid;
+    grid-template-columns: repeat(2, 425px);
+    column-gap: 135px;
+  }
+  &__col {
+    position: relative;
+    &:before {
+      content: "";
+      width: 1px;
+      height: calc(100% - 20px);
+      position: absolute;
+      top: 18px;
+      left: 7px;
+      z-index: -2;
+      background-color: #000;
+    }
+    &-title {
+      position: relative;
+      padding-left: 50px;
+      @include before__circle_min;
+    }
+    ul {
+      padding-left: 7px;
+      list-style-type: none;
+    }
+  }
+  &__item {
+    padding-top: 45px;
+    padding-left: 43px;
+    &-head {
+      position: relative;
+      padding-left: 56px;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -43px;
+        transform: translateY(-50%);
+        height: 1px;
+        width: 44px;
+        background-color: #000;
+      }
+    }
+    &-icon {
+      position: absolute;
+      top: 14px;
+      left: 18px;
+      @include before__circle_tl;
+      &:before {
+        left: -17px;
+        background-color: $sub-color;
+      }
+    }
+    &-info {
+      font-size: 12px;
+    }
+    &-text {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 21px;
+    }
+  }
+}
