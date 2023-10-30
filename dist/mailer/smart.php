@@ -18,7 +18,7 @@ $mail->Password = 'pqqm ztfz eokr isut';                           // Наш п�
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
  
-$mail->setFrom('blindeagleru@gmail.com', 'RunSmart');   // От кого письмо 
+$mail->setFrom('blindeagleru@gmail.com', 'Портфолио');   // От кого письмо 
 $mail->addAddress('rmnv.ivn@gmail.com');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
@@ -28,7 +28,7 @@ $mail->addAddress('rmnv.ivn@gmail.com');     // Add a recipient
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Данные';
+$mail->Subject = 'Обратная форма';
 $mail->Body    = '
 		Пользователь оставил данные <br> 
 	Имя: ' . $name . ' <br>

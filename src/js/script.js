@@ -10,8 +10,8 @@ window.addEventListener("load", () => {
     bgswap.classList.add("second");
   });
 
-  menu.addEventListener("click", (event) => {
-    const target = event.target;
+  menu.addEventListener("click", (e) => {
+    const target = e.target;
     if (
       target.className === "menu__overlay" ||
       target.tagName === "A" ||
@@ -115,34 +115,52 @@ window.addEventListener("load", () => {
 
   textinside(formName, "Ваше Имя");
   textinside(formEmail, "example@mail.com");
-  textinside(form.querySelector("#text"), "Ваш текст");
+  textinside(formText, "Ваш текст");
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
     const name = formName.value;
     const email = formEmail.value;
     const isFormChecked = formCheck.checked;
     const error = document.querySelector(".contacts__error");
     if (name === "Ваше Имя" || email === "example@mail.com") {
+      error.style = "color: #f00";
       error.innerHTML =
         "Пожалуйста, заполните обязательные поля (имя и почта)!";
       return;
     }
     if (!isValidName(name)) {
+      error.style = "color: #f00";
       error.innerHTML =
         "Имя может содержать только латинские буквы или кириллицу.";
       return;
     }
     if (!isValidMail(email)) {
+      error.style = "color: #f00";
       error.innerHTML = "Введите корректный email адрес (example@mail.com).";
       return;
     }
     if (!isFormChecked) {
+      error.style = "color: #f00";
       error.innerHTML =
         "Вы не поставили галочку о согласии с политикой конфедициальности.";
       return;
     }
-    form.submit();
+    const formData = new FormData(form);
+    const response = await fetch("mailer/smart.php", {
+      method: "POST",
+      body: formData,
+    });
+    if (response) {
+      error.style = "color: #080";
+      error.innerHTML = "Письмо отправлено! Спасибо";
+      textinside(formName, "Ваше Имя");
+      textinside(formEmail, "example@mail.com");
+      textinside(formText, "Ваш текст");
+    } else {
+      error.style = "color: #f00";
+      error.innerHTML = "Ошибка";
+    }
   });
 
   function isValidName(name) {
