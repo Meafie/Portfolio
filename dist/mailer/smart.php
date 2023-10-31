@@ -5,30 +5,24 @@ $text = $_POST['text'];
 $email = $_POST['email'];
 
 require_once('phpmailer/PHPMailerAutoload.php');
-$mail = new PHPMailer(true);
+$mail = new PHPMailer;
 $mail->CharSet = 'UTF-8';
 
 // $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'mail.romanov-web.ru';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'info@romanov-web.ru';                 // Наш логин
-$mail->Password = 'zJ3lB3xR4a';                           // Наш пароль от ящика
-$mail->SMTPSecure = true;                            // Enable TLS encryption, `ssl` also accepted
+$mail->Username = 'blindeagleru@gmail.com';                 // Наш логин
+$mail->Password = 'pqqm ztfz eokr isut';                           // Наш пароль от ящика
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
  
-$mail->setFrom('info@romanov-web.ru', 'Портфолио');   // От кого письмо 
+$mail->setFrom('blindeagleru@gmail.com', 'Романов Иван');   // От кого письмо 
 $mail->addAddress('rmnv.ivn@gmail.com');     // Add a recipient
-//$mail->addAddress('ellen@example.com');               // Name is optional
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Обратная форма';
+$mail->Subject = 'Обратная форма на сайте портфолио';
 $mail->Body    = '
 		Пользователь оставил данные <br> 
 	Имя: ' . $name . ' <br>

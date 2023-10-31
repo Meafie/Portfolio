@@ -20,7 +20,6 @@
     padding-left: 40px;
     background-color: $main-color;
     height: 100%;
-    transition: 0.6s all;
   }
   &__list {
     list-style-type: none;
@@ -41,7 +40,7 @@
       height: 15px;
       border: 1px solid #000;
       border-radius: 100%;
-      transition: 0.6s all;
+      transition: 0.3s background-color;
     }
     &:hover {
       &:before {
@@ -62,7 +61,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    transition: 1s all;
+    transition: 1s transform;
     &:hover {
       transform: rotate(360deg);
     }
@@ -93,6 +92,9 @@
     svg {
       width: 20px;
       height: 20px;
+      path {
+        transition: 0.3s fill;
+      }
     }
   }
   &__overlay {

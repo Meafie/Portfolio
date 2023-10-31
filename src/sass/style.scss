@@ -24,6 +24,11 @@ ul {
   margin: 0;
 }
 
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .container {
   width: 1140px;
   margin: 0 auto;

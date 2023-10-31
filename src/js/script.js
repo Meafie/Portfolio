@@ -3,11 +3,11 @@ window.addEventListener("load", () => {
 
   const hamburger = this.document.querySelector(".hamburger"),
     menu = this.document.querySelector(".menu"),
-    bgswap = this.document.querySelector(".promo__under");
+    bgswap = this.document.querySelector(".promo__under_second");
 
   hamburger.addEventListener("click", () => {
     menu.classList.add("active");
-    bgswap.classList.add("second");
+    bgswap.classList.remove("hidden");
   });
 
   menu.addEventListener("click", (e) => {
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
       target.tagName === "path"
     ) {
       menu.classList.remove("active");
-      bgswap.classList.remove("second");
+      bgswap.classList.add("hidden");
     }
   });
 
